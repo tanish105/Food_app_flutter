@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/NGO_home.dart';
+import 'package:food_app/food_details.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-import 'food_details.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -11,6 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String url = "localhost:3000/users";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,4 +90,17 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+  void login()async{
+      var response = await http.post(Uri.parse(url),
+      body: json.encode({
+        "name": "Takshal",
+        "email": "takshal@gmail.com",
+        "password": "12345678",
+        "phone_number": 7861853147,
+        "address": "Gujarat, India, Earth, Milky Way"
+      }));
+  }
 }
+
+

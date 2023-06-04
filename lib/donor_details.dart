@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/food_details.dart';
@@ -11,12 +14,31 @@ class DonorDetails extends StatefulWidget {
 }
 
 class _DonorDetailsState extends State<DonorDetails> {
+  String url = 'http://localhost:3000/user/create';
+
   @override
   List<String> list = <String>['Individual', 'Organization'];
+  TextEditingController name = TextEditingController();
+  TextEditingController number = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController location = TextEditingController();
   bool state = false;
+
+    @override
+    void dispose() {
+      // TODO: implement dispose
+      super.dispose();
+      name.dispose();
+      number.dispose();
+      email.dispose();
+      password.dispose();
+      location.dispose();
+    }
 
   Widget build(BuildContext context) {
     String dropdownValue = list.first;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -59,6 +81,7 @@ class _DonorDetailsState extends State<DonorDetails> {
                 ),
               ),
               TextFormField(
+                controller: name,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -76,6 +99,7 @@ class _DonorDetailsState extends State<DonorDetails> {
                 ),
               ),
               TextFormField(
+                controller: number,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -93,6 +117,7 @@ class _DonorDetailsState extends State<DonorDetails> {
                 ),
               ),
               TextFormField(
+                controller: email,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -111,6 +136,7 @@ class _DonorDetailsState extends State<DonorDetails> {
                 ),
               ),
               TextFormField(
+                controller: password,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -127,6 +153,7 @@ class _DonorDetailsState extends State<DonorDetails> {
                 ),
               ),
               TextFormField(
+                controller: location,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   prefixIcon: const Icon(
@@ -159,6 +186,7 @@ class _DonorDetailsState extends State<DonorDetails> {
                   ),
                 ),
                 onPressed: () {
+                  signUp();
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -170,5 +198,29 @@ class _DonorDetailsState extends State<DonorDetails> {
         ),
       ),
     );
+  }
+  void signUp()async{
+    var response = await http.post(Uri.parse(url),
+        body: json.encode({
+          "name": name.text,
+          "email": email.text,
+          "password": password.text,
+          "phone_number": number.text,
+          "address": location.text
+        }));
+
+    print(json.encode({
+      "name": name.text,
+      "email": email.text,
+      "password": password.text,
+      "phone_number": number.text,
+      "address": location.text,
+      "isPerson": true
+    }));
+
+    if(response.statusCode==200){
+      final body = jsonDecode(response.body);
+      print(body);
+    }
   }
 }

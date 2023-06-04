@@ -1,3 +1,4 @@
+import 'package:food_app/NGO_home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,6 +12,26 @@ class NGOdetails extends StatefulWidget {
 }
 
 class _NGOdetailsState extends State<NGOdetails> {
+
+  TextEditingController type_of_ngo = TextEditingController();
+  TextEditingController name = TextEditingController();
+  TextEditingController number = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController location = TextEditingController();
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    type_of_ngo.dispose();
+    name.dispose();
+    number.dispose();
+    email.dispose();
+    password.dispose();
+    location.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +51,7 @@ class _NGOdetailsState extends State<NGOdetails> {
           child: ListView(
             children: [
               TextFormField(
+                controller: type_of_ngo,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   prefixIcon: const Icon(
@@ -46,6 +68,7 @@ class _NGOdetailsState extends State<NGOdetails> {
                 ),
               ),
               TextFormField(
+                controller: name,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -62,6 +85,7 @@ class _NGOdetailsState extends State<NGOdetails> {
                 ),
               ),
               TextFormField(
+                controller: number,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -78,6 +102,7 @@ class _NGOdetailsState extends State<NGOdetails> {
                 ),
               ),
               TextFormField(
+                controller: email,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -94,6 +119,7 @@ class _NGOdetailsState extends State<NGOdetails> {
                 ),
               ),
               TextFormField(
+                controller: password,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -110,6 +136,7 @@ class _NGOdetailsState extends State<NGOdetails> {
                 ),
               ),
               TextFormField(
+                controller: location,
                 cursorColor: Colors.grey,
                 decoration: InputDecoration(
                   prefixIcon: const Icon(
@@ -143,7 +170,7 @@ class _NGOdetailsState extends State<NGOdetails> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const FoodDetails()));
+                            builder: (context) => const NGOhome()));
                   },
                 ),
               ),
