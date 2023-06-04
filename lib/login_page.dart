@@ -24,64 +24,65 @@ class _LoginPageState extends State<LoginPage> {
         ),
         backgroundColor: Colors.white,
       ),
-      body: Form(
-          child:
-          Column(
-            children: [
-              TextFormField(
-                cursorColor: Colors.grey,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(
-                    Icons.mail,
-                    color: Color(0xFF146C94),
-                  ),
-                  focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                  ),
-                  labelText: 'Enter your Email-ID',
-                  labelStyle: GoogleFonts.poppins(
-                    color: Colors.grey,
-                  ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+        child: ListView(
+          children: [
+            TextFormField(
+              cursorColor: Colors.grey,
+              decoration: InputDecoration(
+                prefixIcon: Icon(
+                  Icons.mail,
+                  color: Color(0xFF146C94),
+                ),
+                focusedBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                labelText: 'Enter registered Email-ID',
+                labelStyle: GoogleFonts.poppins(
+                  color: Colors.grey,
                 ),
               ),
-              TextFormField(
-                cursorColor: Colors.grey,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(
-                    Icons.password,
-                    color: Color(0xFF146C94),
-                  ),
-                  focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                  ),
-                  labelText: 'Enter your password',
-                  labelStyle: GoogleFonts.poppins(
-                    color: Colors.grey,
-                  ),
+            ),
+            TextFormField(
+              obscureText: true,
+              cursorColor: Colors.grey,
+              decoration: InputDecoration(
+                prefixIcon: Icon(
+                  Icons.password,
+                  color: Color(0xFF146C94),
+                ),
+                focusedBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey),
+                ),
+                labelText: 'Password',
+                labelStyle: GoogleFonts.poppins(
+                  color: Colors.grey,
                 ),
               ),
-              const SizedBox(height: 50,),
-              Container(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF146C94),
-                  ),
-                  child: Text(
-                    'Submit',
-                    style: GoogleFonts.poppins(
-                      color: Color(0xFFF6F1F1),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const FoodDetails()));
-                  },
+            ),
+            const SizedBox(height: 50,),
+            Container(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xFF146C94),
                 ),
+                child: Text(
+                  'Submit',
+                  style: GoogleFonts.poppins(
+                    color: Color(0xFFF6F1F1),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FoodDetails()));
+                },
               ),
-            ],
-          ),
+            ),
+          ],
+        ),
       ),
     );
   }
