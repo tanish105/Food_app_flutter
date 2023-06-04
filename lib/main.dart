@@ -3,6 +3,9 @@ import 'package:food_app/NGO_details.dart';
 import 'package:food_app/donor_details.dart';
 import 'package:food_app/homepage.dart';
 
+import 'NGO_home.dart';
+import 'food_details.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const NGOhome(),
     );
   }
 }

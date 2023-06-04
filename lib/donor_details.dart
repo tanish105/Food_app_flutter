@@ -35,17 +35,27 @@ class _DonorDetailsState extends State<DonorDetails> {
             children: [
               Align(
                 alignment: Alignment.center,
-                child: CupertinoSwitch(
-                  value:state,
-                  onChanged: (value){
-                    state = value;
-                    setState(() {
-
-                    },
-                    );
-                  },
-                  thumbColor: Color(0xFF146C94),
-                  activeColor: Color(0x78788028),
+                child: Row(
+                  children: [
+                    CupertinoSwitch(
+                      value: state,
+                      onChanged: (value) {
+                        state = value;
+                        setState(
+                          () {},
+                        );
+                      },
+                      thumbColor: Color(0xFF146C94),
+                      activeColor: Color(0x78788028),
+                    ),
+                    Text(
+                      'Are you a restaurant/organization?',
+                      style: GoogleFonts.poppins(
+                        color: Colors.black,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               TextFormField(
@@ -58,7 +68,8 @@ class _DonorDetailsState extends State<DonorDetails> {
                   focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  labelText: state?'Enter organization Name':'Enter your Name',
+                  labelText:
+                      state ? 'Enter organization Name' : 'Enter your Name',
                   labelStyle: GoogleFonts.poppins(
                     color: Colors.grey,
                   ),
@@ -74,7 +85,8 @@ class _DonorDetailsState extends State<DonorDetails> {
                   focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  labelText: state?'Enter organization Number':'Enter your Number',
+                  labelText:
+                      state ? 'Enter organization Number' : 'Enter your Number',
                   labelStyle: GoogleFonts.poppins(
                     color: Colors.grey,
                   ),
@@ -90,7 +102,9 @@ class _DonorDetailsState extends State<DonorDetails> {
                   focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  labelText: state?'Enter organization Email-ID':'Enter your Email-ID',
+                  labelText: state
+                      ? 'Enter organization Email-ID'
+                      : 'Enter your Email-ID',
                   labelStyle: GoogleFonts.poppins(
                     color: Colors.grey,
                   ),
@@ -122,7 +136,9 @@ class _DonorDetailsState extends State<DonorDetails> {
                   focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  labelText: state?'Enter organization location':'Enter your location',
+                  labelText: state
+                      ? 'Enter organization location'
+                      : 'Enter your location',
                   labelStyle: GoogleFonts.poppins(
                     color: Colors.grey,
                   ),

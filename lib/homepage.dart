@@ -24,18 +24,15 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                Icons.food_bank,
-                size: 50,
-              ),
+              Image.asset('images/logo.png',height: 140,width: 140,),
             ],
           ),
-          const SizedBox(
-            height: 90,
-          ),
+          // const SizedBox(
+          //   height: 90,
+          // ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -188,7 +185,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'We are hungry for donations',
+                  'We are hungry for your donations',
                   style: GoogleFonts.poppins(
                       color: Color(0xFFF6F1F1),
                       fontSize: 18,
